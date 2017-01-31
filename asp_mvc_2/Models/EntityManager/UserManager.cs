@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using asp_mvc_2.Models.DB;
-using Asp_mvc_2.Models.ViewModel;
+using asp_mvc_2.Models.ViewModel;
 
-namespace Asp_mvc_2.Models.EntityManager 
+namespace asp_mvc_2.Models.EntityManager 
 { 
     public class UserManager 
     { 
@@ -49,6 +49,26 @@ namespace Asp_mvc_2.Models.EntityManager
         } public bool IsLoginNameExist(string loginName) { 
             using (DEMODB1Entities db = new DEMODB1Entities()) { 
                 return db.SYSUser.Where(o => o.LoginName.Equals(loginName)).Any(); } }
+
+        public string GetUserPassword(string loginName) { using (DEMODB1Entities db = new DEMODB1Entities()) { var user = db.SYSUser.Where(o => o.LoginName.ToLower().Equals(loginName)); if (user.Any()) return user.FirstOrDefault().PasswordEncryptedText; else return string.Empty; } }
+
+        public bool IsUserInRole(string loginName, string roleName) { 
+            using (DEMODB1Entities db = new DEMODB1Entities()) { 
+                SYSUser SU = db.SYSUser.Where(o => 
+                    o.LoginName.ToLower().Equals(loginName)).FirstOrDefault(); 
+            if (SU != null) { 
+                var roles = from q in db.SYSUserRole 
+                            join r in db.LOOKUPRole on q.LOOKUPRoleID equals r.LOOKUPRoleID 
+                            where r.RoleName.Equals(roleName) && 
+                            q.SYSUserID.Equals(SU.SYSUserID) 
+                            select r.RoleName;
+
+            if (roles != null) { 
+                return roles.Any(); 
+            } 
+            } return false; 
+            } 
+        }
     }
 }
 

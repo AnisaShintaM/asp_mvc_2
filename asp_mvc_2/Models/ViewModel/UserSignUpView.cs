@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations; 
-namespace Asp_mvc_2.Models.ViewModel
+namespace asp_mvc_2.Models.ViewModel
 
     {  
     
