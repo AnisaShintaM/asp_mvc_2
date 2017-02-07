@@ -231,8 +231,46 @@ namespace asp_mvc_2.Models.EntityManager
                         dbContextTransaction.Rollback();
                     }
                 }
+
+            }
+
+        }
+        public void DeleteUser(int userID)
+        {
+            using (DEMODB1Entities db = new DEMODB1Entities())
+            {
+                using (var dbContextTransaction = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var SUR = db.SYSUserRole.Where(o => o.SYSUserID == userID);
+                        if (SUR.Any())
+                        {
+                            db.SYSUserRole.Remove(SUR.FirstOrDefault());
+                            db.SaveChanges();
+                        }
+                        var SUP = db.SYSUserProfile.Where(o => o.SYSUserID == userID);
+                        if (SUP.Any())
+                        {
+                            db.SYSUserProfile.Remove(SUP.FirstOrDefault());
+                            db.SaveChanges();
+                        }
+                        var SU = db.SYSUser.Where(o => o.SYSUserID == userID);
+                        if (SU.Any())
+                        {
+                            db.SYSUser.Remove(SU.FirstOrDefault());
+                            db.SaveChanges();
+                        }
+                        dbContextTransaction.Commit();
+                    }
+                    catch
+                    {
+                        dbContextTransaction.Rollback();
+                    }
+                }
             }
         }
+
 
 
 
