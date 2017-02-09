@@ -33,6 +33,23 @@ Home/AdminOnly. Apabila data salah maka tidak dapat masuk Home/AdminOlny
 ![Screenshot 2] (https://s30.postimg.org/q1ucnid9d/Screenshot_416.png)
 ![Screenshot 2] (https://s24.postimg.org/yntkv6a7p/Screenshot_417.png)
  
+ <br>
+<br>
+<br>
+**JUDUL PROJECT** <br>
+Modul 3 Tugas 3  <br>
+Admin dapat melakukan update data dan delete data. Ketika kita login sebagai admin maka kita akan masuk ke halaman Home/AdminOnly. Selanjutnya kita bisa melakukan perubahan terhadap data dari setiap user, dan admin bisa mengupdate data tersebut. Sebagai admin juga bisa melakukan delete data. 
+ 
+ **SCREEN SHOOT** <br>
+![Screenshot 2] (https://s30.postimg.org/6oswabqw1/Screenshot_426.png)
+![Screenshot 2] (https://s29.postimg.org/61txx2uav/Screenshot_427.png)
+![Screenshot 2] (https://s27.postimg.org/jih5twp0z/Screenshot_429.png)
+![Screenshot 2] (https://s23.postimg.org/77rgpe30b/Screenshot_430.png)
+![Screenshot 2] (https://s24.postimg.org/bbqye0dr9/Screenshot_432.png)
+![Screenshot 2] (https://s30.postimg.org/bx8w8p2oh/Screenshot_433.png)
+
+
+ 
  
 
  
