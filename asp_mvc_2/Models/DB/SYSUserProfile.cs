@@ -10,8 +10,8 @@
 namespace asp_mvc_2.Models.DB
 {
     using System;
-    using System.Collections.Generic;
-    
+  
+
     public partial class SYSUserProfile
     {
         public int SYSUserProfileID { get; set; }
@@ -23,7 +23,7 @@ namespace asp_mvc_2.Models.DB
         public Nullable<System.DateTime> RowCreatedDateTime { get; set; }
         public int RowModifiedSYSUserID { get; set; }
         public Nullable<System.DateTime> RowModifiedDateTime { get; set; }
-    
+
         public virtual SYSUser SYSUser { get; set; }
     }
 }

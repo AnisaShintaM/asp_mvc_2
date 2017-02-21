@@ -11,8 +11,8 @@ namespace asp_mvc_2.Controllers
         {
             return View();
         }
-        [HttpPost]
 
+        [HttpPost]
         public ActionResult SignUp(UserSignUpView USV)
         {
             if (ModelState.IsValid)
@@ -25,7 +25,6 @@ namespace asp_mvc_2.Controllers
                     return RedirectToAction("Welcome", "Home");
 
                 }
-
                 else
                     ModelState.AddModelError("", "Login Name already taken.");
             }
@@ -35,6 +34,7 @@ namespace asp_mvc_2.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult LogIn(UserLoginView ULV, string returnUrl)
         {
@@ -44,13 +44,12 @@ namespace asp_mvc_2.Controllers
                 string password = UM.GetUserPassword(ULV.LoginName);
 
                 if (string.IsNullOrEmpty(password))
-                    ModelState.AddModelError("", "The user login or password provided is incorrect.");
+                    ModelState.AddModelError("", "The user login or password is incorrect.");
                 else
                 {
                     if (ULV.Password.Equals(password))
                     {
-                        FormsAuthentication.SetAuthCookie(ULV.LoginName, false);
-                        return RedirectToAction("Welcome", "Home");
+                        FormsAuthentication.SetAuthCookie(ULV.LoginName, false); return RedirectToAction("Welcome", "Home");
                     }
                     else
                     {
@@ -58,7 +57,8 @@ namespace asp_mvc_2.Controllers
                     }
                 }
             }
-            // If we got this far, something failed, redisplay form 
+
+            // If we got this far, something failed, redisplay form
             return View(ULV);
         }
         [Authorize]
@@ -67,7 +67,6 @@ namespace asp_mvc_2.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
-
     }
 
 }

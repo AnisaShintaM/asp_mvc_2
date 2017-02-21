@@ -22,7 +22,7 @@ namespace asp_mvc_2.Models.DB
         public Nullable<System.DateTime> RowCreatedDateTime { get; set; }
         public int RowModifiedSYSUserID { get; set; }
         public Nullable<System.DateTime> RowModifiedDateTime { get; set; }
-    
+
         public virtual LOOKUPRole LOOKUPRole { get; set; }
         public virtual SYSUser SYSUser { get; set; }
     }
